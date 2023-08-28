@@ -1,0 +1,107 @@
+. ==============================
+. 'CREATE GITHUB REPOSITORY'
+. ==============================
+
+- NOTE: make sure to delete all the console syntax codes before deployment 
+
+1. LETS CREATE A NEW REPOSITORY IN YOUR GITHUB ACCOUNT TO PUSH & STORE DATA THERE 
+
+-> Go to your GitHub account 
+-> Create a new repository on github for our application 'projects-app'
+
+-> Click button 'New'
+-> Repository name 'projects-app'
+-> Checkbox 'Public'
+-> Click button 'Create repository'
+
+# NOTE: GitHub will create a repository on GitHub & the special three npm commands to use to push application data to the repository 
+
+-> Copy the provided commands of created newly repository by GitHub to use in CLI terminal command line to push data: 
+...............................
+git remote add origin https://github.com/Ryevh/projects-app.git
+git branch -M main
+git push -u origin main
+
+2. LETS CREATE A NEW FILE '.env' TO STORE ALL THE API KEY VALUES 
+
+- 2.1 DEFINE GLOBAL ENVIRONMENT VARIABLES WITH API KEY DATA VALUES 
+
+// .env 
+// ....
+VITE_API_KEY = aM7fifqPbgSx1Ia8pXEX1rOehFs27HqDRgpP1qQMLDk
+
+- 2.2 SETUP REFERENCE TO THE GLOBAL ENVIRONEMNT VARIABLES TO ACCESS/USE IT HERE
+
+// src/hooks/useFetchContentfulData.jsx 
+// .........
+const client = createClient({
+  # ../..
+  accessToken: import.meta.env.VITE_API_KEY,
+});
+
+# NOTE: in result we create global environment variables that will store API keys data 
+
+3. LETS ADD THIS '.env' FILE OF ENVIRONMENT VARIABLES INTO FILE '.gitignore' TO SETUP IGNORING BEHAVIOUR TO PUSH THIS '.env' FILE TO GITHUB 
+
+// .gitignore 
+// ..........
+# ../..
+.env
+
+# NOTE: in result this file will not be pushed into the repository because we don't want other people/users of repository account to see API key value/s
+
+4. TARGET PROJECT WORKIGN FOLDER TO OPEN UP INTEGRATED TERMINAL TO RUN FOLLOWING COMMANDS TO PUSH DATA INTO THE GITHUB REPOSITORY ACCOUNT 
+
+- RUN COMMAND TO INSTALL ALL THE APPLICATION DEPENDENCIES
+...............................
+npm install
+
+- RUN COMMAND TO REMOVE EXISTING GIT ON MACBOOK
+...............................
+rm -rf .git
+
+# NOTE: in result with this command we make sure if there is not existing repo
+
+- RUN COMMAND TO INITIALISE NEW GIT REPOSITORY
+...............................
+git init
+
+# NOTE: in result with this command we setup/create a new repo 
+
+- RUN COMMAND TO ADD ALL APPLICATION FILES TO REPO
+...............................
+git add .
+
+- RUN COMMAND TO COMMIT APPLICATION FILES & ASSIGN CUSTOM NAME OF CURRENT COMMIT
+...............................
+git commit -m "first commit"
+
+- RUN COMMANDS RECIVED FROM GITHUB CREATED NEW REPOSITORY DATA
+...............................
+git remote add origin https://github.com/Ryevh/projects-app.git
+git branch -M main
+git push -u origin main
+
+-> REFRESH GITHUB BROWSER PAGE TO SEE PUSHED DATA INOT REPOSITORY 
+
+NOTE: in result we should see all the pushed data in newly created GitHub repository 'projects-app'
+
+. ==============================
+* IF YOU MAKE ANY NEW CHANGES/UPDATES IN THE APPLICATION FILES OF THE PUSHED APPLICATION FILES INTO THE GITHUB REPOSITORY THEN RUN FOLLOWING COMMANDS WITH NEW UPDATED CHANGES 
+. ==============================
+
+- RUN COMMAND TO ADD ALL FILES TO REPOSITORY
+...............................
+git add .
+
+- RUN COMMAND TO COMMIT FILES 
+...............................
+git commit -m "first commit"
+
+- RUN COMMANDS RECIVED FROM GITHUB CREATED NEW REPOSITORY DATA
+...............................
+git remote add origin https://github.com/Ryevh/projects-app.git
+git branch -M main
+git push -u origin main
+
+# NOTE: IN RESULT WE SHOULD SEE UPDATED REPOSITORY WITH A NEW PUSHED DATA 
