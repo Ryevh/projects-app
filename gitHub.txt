@@ -96,7 +96,7 @@ git add .
 
 - RUN COMMAND TO COMMIT FILES 
 ...............................
-git commit -m "first commit"
+git commit -m "second commit"
 
 - RUN COMMANDS RECIVED FROM GITHUB CREATED NEW REPOSITORY DATA
 ...............................
